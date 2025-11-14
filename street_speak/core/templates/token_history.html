@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Token History</h2>
+<p>Total Tokens: {{ tokens }}</p>
+<ul>
+    {% for report in reports %}
+    <li>{{ report.description }} — {{ report.submitted_at }} — Priority: {{ report.priority }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

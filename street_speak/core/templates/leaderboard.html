@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Leaderboard</h2>
+<ol>
+    {% for entry in top_users %}
+    <li>{{ entry.user.username }} — {{ entry.tokens }} tokens</li>
+    {% endfor %}
+</ol>
+{% endblock %}

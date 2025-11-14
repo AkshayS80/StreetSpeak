@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StreetSpeak</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+    <div class="nav-left">
+        <img src="{% static 'images/streetspeak_logo.png' %}" alt="StreetSpeak Logo" class="logo">
+    </div>
+    <div class="nav-right">
+    <a href="{% url 'home' %}">Home</a>
+    
+    {% if user.is_authenticated %}
+        <a href="{% url 'report' %}">Report</a>
+        <a href="{% url 'token_history' %}">Token History</a>
+        <form method="POST" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+    
+    <a href="{% url 'leaderboard' %}">Leaderboard</a>
+</div>
+
+</nav>
+    {% block content %}{% endblock %}
+    <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>StreetSpeak</h3>
+            <p>Empowering citizens to report civic issues and improve their communities.</p>
+        </div>
+        <div class="footer-column">
+            <h3>QUICK LINKS</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'report' %}">Report</a></li>
+                <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>LEARN MORE</h3>
+            <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>CONTACT US</h3>
+            <p>📞 Phone: 9999999999, 7777777777</p>
+            <p>📧 E-Mail: streetspeak@gmail.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Created By Akshay | All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

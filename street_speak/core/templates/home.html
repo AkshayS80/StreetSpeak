@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to StreetSpeak</h1>
+    <p>Report civic issues and earn tokens while making your city better.</p>
+    <a href="{% url 'report' %}"><button>Report an Issue</button></a>
+</div>
+
+<div class="issues">
+    <h2>Recent Issues</h2>
+    <div class="scroll-container">
+        <div class="card">
+            <img src="{% static 'images/pothole_placeholder.jpg' %}" alt="Pothole">
+            <h3>Pothole near school</h3>
+            <p>Priority: High</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/streetlight_placeholder.jpg' %}" alt="Streetlight">
+            <h3>Broken streetlight</h3>
+            <p>Priority: Low</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/trash_placeholder.jpg' %}" alt="Trash">
+            <h3>Overflowing trash bin</h3>
+            <p>Priority: Medium</p>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+</div>
+{% endblock %}
