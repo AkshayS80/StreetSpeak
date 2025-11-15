@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/report.css' %}">
+{% endblock %}
+
 {% block content %}
-<h2>Report an Issue</h2>
+<div class="report-container">
+  <h2>Report an Issue</h2>
 
-<form method="post" enctype="multipart/form-data" onsubmit="showSpinner()">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" id="id_latitude" name="latitude">
-    <input type="hidden" id="id_longitude" name="longitude">
-    <button type="submit">Submit</button>
-</form>
+  <form method="post" enctype="multipart/form-data" onsubmit="showSpinner()">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="hidden" id="id_latitude" name="latitude">
+      <input type="hidden" id="id_longitude" name="longitude">
+      <button type="submit" class="submit-button">Submit</button>
+  </form>
 
-<!-- Spinner section -->
-<div id="spinner" style="display:none; margin-top: 20px;">
-    <p>Scanning image with AI... please wait</p>
-    <img src="{% static 'spinner.gif' %}" alt="Loading..." width="50" height="50" />
+  <div id="spinner" class="spinner">
+      <p>Scanning image with AI... please wait</p>
+      <img src="{% static 'spinner.gif' %}" alt="Loading..." width="50" height="50" />
+  </div>
 </div>
 {% endblock %}
 

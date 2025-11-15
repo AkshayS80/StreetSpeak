@@ -1,9 +1,51 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
 {% block content %}
-<h2>Sign Up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-field">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+
+        <div class="form-field">
+            {{ form.password1.label_tag }}
+            <span class="tooltip-icon">ℹ️
+                <span class="tooltip-text">
+                    Your password can’t be too similar to your personal info.<br>
+                    Must contain at least 8 characters.<br>
+                    Can’t be a commonly used password.<br>
+                    Can’t be entirely numeric.
+                </span>
+            </span>
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+        </div>
+
+        <div class="form-field">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+    <p class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Log in</a>
+    </p>
+</div>
 {% endblock %}
