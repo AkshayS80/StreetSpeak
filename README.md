@@ -54,9 +54,6 @@ StreetSpeak is a gamified, citizen-powered web platform that empowers users to r
 
 ---
 
-## 📷 Screenshots
----
-
 ## 📦 Installation
 
 ```bash
