@@ -11,13 +11,22 @@
 <div class="token-container">
     <h2>Your Token History</h2>
     <p class="token-count">Total Tokens: {{ tokens }}</p>
+    <p class="redeem-link">
+    <a href="">Redeem your tokens here</a>
+</p>
     <ul class="token-list">
-        {% for report in reports %}
-        <li>
+    {% for report in reports %}
+    <li class="token-item">
+        <div class="token-left">
             <strong>{{ report.description }}</strong><br>
-            {{ report.submitted_at }} — Priority: {{ report.priority }}
-        </li>
-        {% endfor %}
-    </ul>
+            {{ report.submitted_at }}
+        </div>
+        <div class="token-right priority-{{ report.priority }}">
+    <span class="priority-label">Priority</span>
+    <span class="priority-value">{{ report.priority }}</span>
+</div>
+    </li>
+    {% endfor %}
+</ul>
 </div>
 {% endblock %}

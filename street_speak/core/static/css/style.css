@@ -157,30 +157,6 @@ footer {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.logout-button {
-    background: none;
-    border: none;
-    color: blue;
-    cursor: pointer;
-    text-decoration: underline;
-    font: inherit;
-    padding: 0;
-}
-
-.logout-button {
-    background: none;        /* remove button background */
-    border: none;            /* remove border */
-    color: white;            /* match nav text color */
-    cursor: pointer;         /* show pointer on hover */
-    text-decoration: none;   /* remove underline */
-    font: inherit;           /* use same font as nav links */
-    padding: 0;              /* remove extra spacing */
-    margin: 0;               /* remove default margin */
-}
-
-.logout-button:hover {
-    text-decoration: underline; /* optional hover effect like other links */
-}
 
 
 .navbar form {
@@ -213,4 +189,28 @@ html, body {
 
 .main-content {
     padding: 2rem;
+}
+
+.nav-right .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5em;
+    font-size: 1em;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+
 }

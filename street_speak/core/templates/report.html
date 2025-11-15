@@ -9,19 +9,13 @@
 <div class="report-container">
   <h2>Report an Issue</h2>
 
-  <form method="post" enctype="multipart/form-data" onsubmit="showSpinner()">
+  <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
       <input type="hidden" id="id_latitude" name="latitude">
       <input type="hidden" id="id_longitude" name="longitude">
       <button type="submit" class="submit-button">Submit</button>
   </form>
-
-  <div id="spinner" class="spinner">
-      <p>Scanning image with AI... please wait</p>
-      <img src="{% static 'spinner.gif' %}" alt="Loading..." width="50" height="50" />
-  </div>
-</div>
 {% endblock %}
 
 <script>
@@ -30,7 +24,4 @@ navigator.geolocation.getCurrentPosition(function(position) {
     document.getElementById('id_longitude').value = position.coords.longitude;
 });
 
-function showSpinner() {
-    document.getElementById('spinner').style.display = 'block';
-}
 </script>

@@ -44,9 +44,3 @@
     background: linear-gradient(to right, #ee0979, #ff6a00);
 }
 
-.spinner {
-    display: none;
-    text-align: center;
-    margin-top: 2em;
-    color: #333;
-}
