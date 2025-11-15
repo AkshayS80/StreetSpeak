@@ -55,13 +55,14 @@ def report_issue(request):
             token_obj.tokens += 10
             token_obj.save()
 
-            return redirect('thankyou')
+            # ✅ FIX: pass report to thankyou.html
+            return render(request, 'thankyou.html', {'report': report})
     else:
         form = ReportForm()
+
+    # ✅ FIX: show the form again if GET or invalid POST
     return render(request, 'report.html', {'form': form})
 
-def thankyou(request):
-    return render(request, 'thankyou.html')
 
 
 def signup(request):

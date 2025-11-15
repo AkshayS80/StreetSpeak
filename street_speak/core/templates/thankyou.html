@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h2>Thank you for reporting!</h2>
-<p>We will be in touch.</p>
+  {% if report.priority == 1 %}
+    <h2>Your report has been automatically verified</h2>
+    <p>Thanks for helping us keep the streets safe! We will be actively pursuing this.</p>
+  {% else %}
+    <h2>We’ll verify your report manually for further information.</h2>
+    <p>Thanks for submitting. We’ll contact you in the near future for more information</p>
+  {% endif %}
 {% endblock %}
